@@ -9,10 +9,10 @@
 <body>
 	<center>
 		<form action="getData">
-			<input type="submit" name="Get Table">
+			<input type="submit" value="Get Table" name="Get Table">
 		</form>
 		<form action="processData">
-			<input type="submit" name="Process Table">
+			<input type="submit" value="Process Table" name="Process Table">
 		</form>
 	</center>
 </body>
