@@ -31,7 +31,7 @@ public class GetDataController extends HttpServlet {
 		
 		request.setAttribute("MasterRow",mrows);//name, object
 		
-		/*Passing this object to jsp to display..
+		/*Passing this object to jsp to display.
 		 * we pass control to showTransaction.jsp using dispatcher*/
 		
 		RequestDispatcher rd = request.getRequestDispatcher("showTransaction.jsp");

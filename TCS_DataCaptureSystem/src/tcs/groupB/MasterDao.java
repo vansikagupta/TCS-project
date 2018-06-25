@@ -13,8 +13,8 @@ public class MasterDao
 	    
 	 
 	    Class.forName("oracle.jdbc.driver.OracleDriver");
-	   	//System.out.println("Cannot load");
 	   	Connection con= DriverManager.getConnection(jdbcUrl,username,password);
+	    System.out.println("Connected");
 	   	return con;
 	    	
 	}
@@ -51,16 +51,28 @@ public class MasterDao
 	//called by ProcessDataController
 	public void processData()
 	{
-		String sql="begin dummy_procedure;end;";
+		String sql="{call Update_All}";
+		System.out.println("In Process Data Method");
+		CallableStatement storedProc = null;
+		Connection con;
 		try
 		{
-			Connection con=getCon();
-			CallableStatement st=con.prepareCall(sql);
-			st.execute();
-			st.close();
-			con.close();
-		}
-		catch(Exception e)
+			con=getCon();
+	        storedProc = con.prepareCall(sql);
+	        storedProc.executeQuery();
+	        System.out.println("Query executed");
+	        storedProc.close();
+	        
+	    } 
+	    catch (SQLException e) 
+	    {
+	    	System.out.println(e);
+	    }
+		catch (ClassNotFoundException e) 
+	    {
+	    	System.out.println(e);
+	    }
+		catch (Exception e) 
 	    {
 	    	System.out.println(e);
 	    }
