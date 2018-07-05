@@ -12,14 +12,15 @@ public class Master
 	private int CAge;
 	private String PID;
 	private String PName;
-	private String PVal;
 	private float PTarrif;
-	private String PStatus;
-	
+	private String PVal;
+	private String Status;
+	private String Remarks;
+	private String date;
 	
 	
 	public Master(int sID, String tID, String tDate, String cID, String cName, String cContact, String cEmail, int cAge,
-			String pID, String pName, String pVal, float pTarrif, String pStatus) {
+			String pID, String pName, float pTarrif, String pVal, String status, String remarks, String date) {
 		super();
 		SID = sID;
 		TID = tID;
@@ -31,9 +32,11 @@ public class Master
 		CAge = cAge;
 		PID = pID;
 		PName = pName;
-		PVal = pVal;
 		PTarrif = pTarrif;
-		PStatus = pStatus;
+		PVal = pVal;
+		Status = status;
+		Remarks = remarks;
+		this.date = date;
 	}
 	
 	public int getSID() {
@@ -96,30 +99,43 @@ public class Master
 	public void setPName(String pName) {
 		PName = pName;
 	}
-	public String getPVal() {
-		return PVal;
-	}
-	public void setPVal(String pVal) {
-		PVal = pVal;
-	}
 	public float getPTarrif() {
 		return PTarrif;
 	}
 	public void setPTarrif(float pTarrif) {
 		PTarrif = pTarrif;
 	}
-	public String getPStatus() {
-		return PStatus;
+	public String getPVal() {
+		return PVal;
 	}
-	public void setPStatus(String pStatus) {
-		PStatus = pStatus;
+	public void setPVal(String pVal) {
+		PVal = pVal;
 	}
-
+	public String getStatus() {
+		return Status;
+	}
+	public void setStatus(String status) {
+		Status = status;
+	}
+	public String getRemarks() {
+		return Remarks;
+	}
+	public void setRemarks(String remarks) {
+		Remarks = remarks;
+	}
+	public String getDate() {
+		return date;
+	}
+	public void setDate(String date) {
+		this.date = date;
+	}
+	
 	@Override
 	public String toString() {
 		return "Master [SID=" + SID + ", TID=" + TID + ", TDate=" + TDate + ", CID=" + CID + ", CName=" + CName
 				+ ", CContact=" + CContact + ", CEmail=" + CEmail + ", CAge=" + CAge + ", PID=" + PID + ", PName="
-				+ PName + ", PVal=" + PVal + ", PTarrif=" + PTarrif + ", PStatus=" + PStatus + "]";
+				+ PName + ", PTarrif=" + PTarrif + ", PVal=" + PVal + ", Status=" + Status + ", Remarks=" + Remarks
+				+ ", date=" + date + "]";
 	}
 	
 	
