@@ -1,6 +1,8 @@
 package tcs.groupB;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,6 +20,9 @@ public class ProcessDataController extends HttpServlet
 	{
 		MasterDao md=new MasterDao();
 		md.processData();
+		PrintWriter out=response.getWriter();
+		out.println("Processing successfully done");
+ 
 	}
 
 }

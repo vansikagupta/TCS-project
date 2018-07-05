@@ -14,7 +14,9 @@
 	<%
 	ArrayList<Master> list = (ArrayList<Master>)request.getAttribute("MasterRow");
 
-	// print the information about every category of the list
+	// print the information about every category of the listprivate int SID;
+	//out.println("<html><body><table><tr><td>SID</td><td>TID</td><td>TRANSACTION DATE</td><td>CID</td><td>CUSTOMER NAME</td><td>CUSTOMER CONTACT</td><td>CUSTOMER EMAIL</td><td>CUSTOMER AGE</td><td>PID</td><td>PLAN NAME</td><td>PLAN VALUE</td><td>PLAN TARRIF</td><td>PLAN STATUS</td></tr></table></body></html>");
+	//out.println("SID"+"TID"+"TRANSACTION DATE"+"CID"+"CUSTOMER NAME"+"CUSTOMER CONTACT"+"CUSTOMER EMAIL"+"CUSTOMER AGE"+"PID"+"PLAN NAME"+"PLAN VALUE" + "PLAN TARRIF" + "PLAN STATUS");
 	for (Master M:list)
 	{
 	    out.println(M);

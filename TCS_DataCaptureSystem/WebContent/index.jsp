@@ -10,7 +10,15 @@
 	<center>
 		<form action="getData">
 			<input type="submit" value="Get Table" name="Get Table">
-		</form>
+			
+		</form></br>
+		
+		<form action="uploadFile" method = "post" enctype = "multipart/form-data">
+			<input type="file" name="fileuploaded">
+			</br>
+			<input type="submit" value="Upload File">
+		</form></br>
+		
 		<form action="processData">
 			<input type="submit" value="Process Table" name="Process Table">
 		</form>
