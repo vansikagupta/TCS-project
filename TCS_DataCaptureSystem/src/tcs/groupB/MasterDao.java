@@ -1,7 +1,19 @@
 package tcs.groupB;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Iterator;
+
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class MasterDao 
 {
@@ -77,5 +89,54 @@ public class MasterDao
 	    	System.out.println(e);
 	    }
 	}
-
+	
+	public void readExcel(String filepath)
+	{
+		
+		File file=null;
+		try 
+		{
+			file = new File(filepath);
+			
+			//Create the input stream from the xlsx/xls file
+			FileInputStream fis = new FileInputStream(file);
+			
+			//Create Workbook instance for xlsx/xls file input stream
+			Workbook workbook = null;
+			if(filepath.toLowerCase().endsWith("xlsx"))
+			{
+				workbook = new XSSFWorkbook(fis);
+			}
+			else if(filepath.toLowerCase().endsWith("xls"))
+			{
+				workbook = new HSSFWorkbook(fis);
+			}
+			 //get the number of spreadsheets
+			int noOfSheets=workbook.getNumberOfSheets();
+			for(int index=0;index < noOfSheets;index++)
+			{
+				Sheet sheet=workbook.getSheetAt(index);
+				//iterate through all rows
+				Iterator<Row> rowIterator = sheet.iterator();
+				while (rowIterator.hasNext()) 
+				{
+					Row row = rowIterator.next();
+					Iterator<Cell> cellIterator = row.cellIterator();
+					Cell cell=row.getCell(1);
+				}
+			}
+		} 
+		catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} 
+		catch (IOException e) {
+			e.printStackTrace();
+		}
+	      
+	      if(file.isFile() && file.exists()) {
+	         System.out.println("file open successfully.");
+	      } else {
+	         System.out.println("Error to open file.");
+	      }
+	}
 }
